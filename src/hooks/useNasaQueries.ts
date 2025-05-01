@@ -3,7 +3,7 @@ import {NeoResponse, PODResponse} from "../types/nasa";
 import {useQuery} from "@tanstack/react-query";
 
 const nasaService = NasaService();
-export const usePictureOfTheDay = (date?: string) => {
+export const usePictureOfTheDay = (date: string) => {
     const queryResult = useQuery<PODResponse, Error>({
         queryKey: ['pictureOfTheDay', date],
         queryFn: () => nasaService.getPictureOfTheDay(date),

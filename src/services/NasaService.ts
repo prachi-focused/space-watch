@@ -1,18 +1,16 @@
 import axios from 'axios';
 import {NeoResponse, PODResponse} from "../types/nasa";
-import {convertToFormatYYYYMMDD} from "../helper/dateHelper";
 
 const NASA_BASE_URL = 'https://api.nasa.gov';
 const API_KEY = process.env.REACT_APP_NASA_PUBLIC_API_KEY;
 
 export const NasaService = () => {
 
-    const getPictureOfTheDay = async (date?: string): Promise<PODResponse> => {
+    const getPictureOfTheDay = async (date: string): Promise<PODResponse> => {
         try {
-            const now = convertToFormatYYYYMMDD(new Date());
             const params = {
                 api_key: API_KEY,
-                date: date ?? now
+                date: date
             };
 
             const response = await axios.get<PODResponse>(
@@ -30,10 +28,9 @@ export const NasaService = () => {
 
     const getNearEarthObjects = async (startDate: string, endDate?: string): Promise<NeoResponse> => {
         try {
-            const now = convertToFormatYYYYMMDD(new Date());
             const params = {
                 api_key: API_KEY,
-                start_date: startDate ?? now,
+                start_date: startDate,
                 ...(endDate ? {end_date: endDate} : {})
             };
 

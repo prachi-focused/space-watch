@@ -1,22 +1,22 @@
 import {NearEarthObject, NeoResponse} from "../types/nasa";
 import {convertToReadableFormat} from "../helper/dateHelper";
 
-type MinMaxDistance = {
+type MinMax = {
     min: number,
     max: number,
 }
-type FormattedNeoData = {
+export type FormattedNeoData = {
     "date": string,
     "name": string,
     "neo_reference_id": string,
     "orbiting_body_is_earth": boolean,
-    "estimated_diameter_km": MinMaxDistance,
+    "estimated_diameter_km": MinMax,
     "is_potentially_hazardous_asteroid": boolean,
     "relative_velocity_kph": string,
     "nasa_jpl_url": string,
     "close_approach_date_full": string
 }
-
+// TODO: sort the list by date DESC
 export function formatNeoData(data: NeoResponse) {
     const formattedNeoData: FormattedNeoData[] = [];
 

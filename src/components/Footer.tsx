@@ -2,12 +2,11 @@ import React from "react";
 
 export const Footer: React.FC = () => {
     const styles = footerStyles();
-    const currentYear = new Date().getFullYear();
 
     return (
         <div style={styles.footerContainer}>
             <div style={styles.copyrightText}>
-                <p>Space Watch &copy; {currentYear}</p>
+                <p>Space Watch &copy; 2025</p>
                 <div style={styles.resourceText}>
                     <p>Data collected from{'  '}</p>
                     <a
