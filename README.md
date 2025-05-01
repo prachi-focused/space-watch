@@ -2,9 +2,14 @@
 
 This is a react app for space enthusiasts that combines the latest news, launches, discoveries in space. It uses open APIs to gather the data and vizualise the data on the pages.
 
+### Features
+- See the number of people in space
+- See the Astronomy Picture for any day
+- See the Near Earth Objects in the next 8 days
+
 ### APIs integrated with this app
-- NASA APIs (https://api.nasa.gov/) - need an API key to access
-- 
+- [NASA APIs](https://api.nasa.gov/) - need an API key to access
+- [Open Notify APIs](http://open-notify.org/Open-Notify-API/) - open source
 
 ### Available Scripts
 
