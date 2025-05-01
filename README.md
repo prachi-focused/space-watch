@@ -6,6 +6,7 @@ This is a react app for space enthusiasts that combines the latest news, launche
 1. Run `npm instal` in the terminal to get all dependencies
 2. Enter the NASA API key in the `.env` file. Get the key from [here](https://api.nasa.gov/)
 3. Run `npm start` to start the app locally
+4. Optional: Run tests with `npm run test`
 
 ### Features
 - See the number of people in space
