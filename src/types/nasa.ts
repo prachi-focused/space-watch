@@ -1,6 +1,3 @@
-export interface Nasa {
-
-}
 export interface PODResponse  {
     title: string;
     explanation: string;

@@ -2,7 +2,8 @@ import axios from 'axios';
 import {NeoResponse, PODResponse} from "../types/nasa";
 import {formatDate} from "../helper/dateHelper";
 
-const BASE_URL = 'https://api.nasa.gov';
+const NASA_BASE_URL = 'https://api.nasa.gov';
+const API_KEY = process.env.REACT_APP_NASA_PUBLIC_API_KEY;
 
 export const NasaService = () => {
 
@@ -10,12 +11,12 @@ export const NasaService = () => {
         try {
             const now = formatDate(new Date());
             const params = {
-                api_key: process.env.REACT_APP_NASA_PUBLIC_API_KEY,
+                api_key: API_KEY,
                 date: date ?? now
             };
 
             const response = await axios.get<PODResponse>(
-                `${BASE_URL}/planetary/apod`,
+                `${NASA_BASE_URL}/planetary/apod`,
                 {params: params}
             );
             return response.data;
@@ -31,13 +32,13 @@ export const NasaService = () => {
         try {
             const now = formatDate(new Date());
             const params = {
-                api_key: process.env.REACT_APP_NASA_PUBLIC_API_KEY,
+                api_key: API_KEY,
                 start_date: startDate ?? now,
                 ...(endDate ? {end_date: endDate} : {})
             };
 
             const response = await axios.get<NeoResponse>(
-                `${BASE_URL}/neo/rest/v1/feed`,
+                `${NASA_BASE_URL}/neo/rest/v1/feed`,
                 {params: params}
             );
             return response.data;
