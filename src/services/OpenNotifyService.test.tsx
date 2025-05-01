@@ -1,7 +1,5 @@
-import {NeoResponse, PODResponse} from "../types/nasa";
-import {NasaService} from "./NasaService";
 import axios from "axios";
-import {IssLocationResponse, PeopleInSpaceResponse} from "../types/openNotify";
+import {PeopleInSpaceResponse} from "../types/openNotify";
 import {OpenNotifyService} from "./OpenNotifyService";
 
 jest.mock('axios');
