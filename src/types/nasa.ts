@@ -1,3 +1,4 @@
+
 export interface PODResponse  {
     title: string;
     explanation: string;
@@ -13,12 +14,12 @@ export interface NeoResponse {
     element_count: number;
 }
 
-interface NearEarthObjects {
+export interface NearEarthObjects {
     [date: string]: NearEarthObject[];
 }
 
 // Near Earth Object details
-interface NearEarthObject {
+export interface NearEarthObject {
     links: NeoLinks;
     id: string;
     neo_reference_id: string;
@@ -29,6 +30,7 @@ interface NearEarthObject {
     is_potentially_hazardous_asteroid: boolean;
     close_approach_data: CloseApproachData[];
     is_sentry_object: boolean;
+    sentry_data?: string
 }
 
 // Links specific to a NEO
@@ -51,7 +53,7 @@ interface DiameterMinMax {
 }
 
 // Close approach data for an object
-interface CloseApproachData {
+export interface CloseApproachData {
     close_approach_date: string;
     close_approach_date_full: string;
     epoch_date_close_approach: number;
@@ -61,7 +63,7 @@ interface CloseApproachData {
 }
 
 // Velocity in different units
-interface RelativeVelocity {
+export interface RelativeVelocity {
     kilometers_per_second: string;
     kilometers_per_hour: string;
     miles_per_hour: string;
