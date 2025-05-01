@@ -27,7 +27,7 @@ export const PeopleInSpace: React.FC = () => {
 
 const peopleInSpaceStyle = () => ({
     peopleInSpaceSection: {
-        padding: '20px',
+        padding: "0 0 20px 20px"
     },
     astronautsEmoji: {
         fontSize: '32px',

@@ -1,20 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import {usePictureOfTheDay} from "../hooks/useNasaQueries";
+import {convertToFormatYYYYMMDD} from "../helper/dateHelper";
 
 const PLACEHOLDER_TITLE = "PLACEHOLDER_TITLE";
 const PLACEHOLDER_DESCRIPTION = "PLACEHOLDER_DESCRIPTION";
 
 export const PictureOfTheDay: React.FC = () => {
+    const currentDate = convertToFormatYYYYMMDD(new Date());
+    const [selectedDate, setSelectedDate] = useState<string>(currentDate);
     const {
         podResponse,
         isLoading: isPictureOfTheDayLoading,
         error: pictureOfTheDayError,
-    } = usePictureOfTheDay();
+    } = usePictureOfTheDay(selectedDate);
 
     const styles = podStyle();
-
-    if (isPictureOfTheDayLoading)
-        return <div>Loading...</div>;
 
     if (pictureOfTheDayError) {
         console.error(pictureOfTheDayError);
@@ -24,15 +24,29 @@ export const PictureOfTheDay: React.FC = () => {
     return (
         <div style={styles.pictureOfTheDaySection}>
             <h2>Astronomy Picture of the Day</h2>
+            {/*Date selector*/}
+            <div>
+                <label style={styles.datePickerLabel}>Select date: </label>
+                <input
+                    type={"date"}
+                    style={styles.datePickerInput}
+                    value={selectedDate}
+                    onChange={(e) => setSelectedDate(e.target.value)}
+                    max={currentDate}
+                />
+            </div>
+
+            {/*Picture data*/}
+            {isPictureOfTheDayLoading && (<div>Loading...</div>)}
             {podResponse &&
                 <>
                     <h4>{podResponse.title || PLACEHOLDER_TITLE}</h4>
-                    <p>{podResponse.explanation || PLACEHOLDER_DESCRIPTION}</p>
                     <img
                         style={styles.pictureOfTheDayImage}
                         src={podResponse.hdurl ?? podResponse.url}
                         alt={"Picture Of the Day placeholder"}
                     />
+                    <p>{podResponse.explanation || PLACEHOLDER_DESCRIPTION}</p>
                 </>
             }
         </div>
@@ -52,7 +66,15 @@ const podStyle = () => ({
         height: "80%",
         minHeight: "80%",
     } as React.CSSProperties,
-    pictureOfTheDaySectionTitle: {},
+    datePickerLabel:{
+        fontSize: '18px',
+        fontWeight: 'bold',
+    },
+    datePickerInput:{
+        padding: "7px",
+        border: '1px solid #ccc',
+        borderRadius: "4px"
+    },
     pictureOfTheDayImage: {
         width: "70%",
         objectFit: "contain"

@@ -1,5 +1,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
+import {ROUTES} from "../constants/Routes";
 
 export const Header: React.FC = () => {
     const styles = headerStyles();
@@ -9,13 +10,13 @@ export const Header: React.FC = () => {
             <div style={styles.title}>Space Watch</div>
             <nav style={styles.navContainer}>
                 <NavLink
-                    to={"/"}
+                    to={ROUTES.HOME}
                     style={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}
                 >
                     Home
                 </NavLink>
                 <NavLink
-                    to={"/neo-list"}
+                    to={ROUTES.NEO_INFO}
                     style={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}
                 >
                     Near-Earth Objects

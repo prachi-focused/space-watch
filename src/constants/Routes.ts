@@ -1,3 +1,4 @@
 export enum ROUTES  {
-    HOME = "/"
+    HOME = "/",
+    NEO_INFO = "/neo-info"
 }
