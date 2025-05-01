@@ -32,7 +32,7 @@ export const NeoInfoPage: React.FC = () => {
             <div>
                 <div style={styles.totalCountSection}>
                     <h2>Total Near Earth Objects: {neoResponse.element_count}</h2>
-                    <h2>Hazardous Objects: {hazardousObjectsCount}</h2>
+                    <h2>Number of hazardous Near Earth Objects: {hazardousObjectsCount}</h2>
                 </div>
                 <div style={styles.cardsSection}>
                     {formattedNeoList.map((neoObject, index) => {

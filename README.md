@@ -2,6 +2,11 @@
 
 This is a react app for space enthusiasts that combines the latest news, launches, discoveries in space. It uses open APIs to gather the data and vizualise the data on the pages.
 
+### Instructions to Run
+1. Run `npm instal` in the terminal to get all dependencies
+2. Enter the NASA API key in the `.env` file. Get the key from [here](https://api.nasa.gov/)
+3. Run `npm start` to start the app locally
+
 ### Features
 - See the number of people in space
 - See the Astronomy Picture for any day
