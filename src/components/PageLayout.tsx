@@ -1,11 +1,10 @@
 import React from "react";
+import {Footer} from "./Footer";
+import {Header} from "./Header";
 
 interface PageLayoutProps {
     children: React.ReactNode;
 }
-
-const Header: React.FC = () => <></>;
-const Footer: React.FC = () => <></>;
 
 export const PageLayout: React.FC<PageLayoutProps> = ({children}: PageLayoutProps) => {
     const styles = pageLayoutStyles();
@@ -28,5 +27,6 @@ const pageLayoutStyles = () => ({
     } as React.CSSProperties,
     pageContent: {
         padding: '20px',
+        flex: '1 0 auto',
     }
 });
